@@ -118,7 +118,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
     user_account {
       username = local.cloud_init.users[0]
       password = local.cloud_init.password
-      keys     = [local.cloud_init.ssh_public_key]
+  #    keys     = [local.cloud_init.ssh_public_key]
     }
   }
 
