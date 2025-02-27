@@ -53,10 +53,10 @@ pipeline {
                 expression { params.TERRAFORM_ACTION == 'apply' }
             }
             steps {
-                dir("${params.TERRAFORM_DIR}") {
+                // dir("${params.TERRAFORM_DIR}") {
                     sh "terraform apply -auto-approve -no-color"
                 }
-            }
+            // }
         }
         
         stage('Terraform Destroy') {
