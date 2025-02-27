@@ -34,12 +34,12 @@ locals {
   }
   # Configurações específicas para Master nodes
   nodes = {
-    "sh-homelab" = {
-      vmid          = 3001
+    "sh-homelab-test" = {
+      vmid          = 3004
       ip_last_octet = 10
       cores         = 2
       memory        = 4096
-      tags          = ["jenkins"]
+      tags          = ["jenkins-pipeline"]
     }
   }
   # Combina nodes em um único mapa para uso geral
