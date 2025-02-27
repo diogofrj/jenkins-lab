@@ -43,7 +43,7 @@ pipeline {
             }
             steps {
                 // dir("${params.TERRAFORM_DIR}") {
-                    sh "terraform plan -out=tfplan -no-color"
+                    sh "terraform plan -no-color"
                 }
             // }
         }
@@ -54,7 +54,7 @@ pipeline {
             }
             steps {
                 dir("${params.TERRAFORM_DIR}") {
-                    sh "terraform apply -auto-approve tfplan -no-color"
+                    sh "terraform apply -auto-approve -no-color"
                 }
             }
         }
