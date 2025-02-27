@@ -134,7 +134,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
     ]
   }
 
-
+/*
   # Execução remota de comandos após a criação da VM
   provisioner "remote-exec" {
     connection {
@@ -150,6 +150,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
       "chown ubuntu:ubuntu /home/ubuntu/install-tools.sh"
     ]
   }
+*/
 }
 
 
