@@ -48,10 +48,10 @@ locals {
   cloud_init = {
     users                  = ["ubuntu"]
     password               = "ubuntu"
-    ssh_public_key         = file("~/.ssh/id_rsa.pub")
-    authorized_keys        = file("~/.ssh/authorized_keys")
-    copy_authorized_keys   = true
-    authorized_keys_source = "~/.ssh/authorized_keys"
+    #ssh_public_key         = file("~/.ssh/id_rsa.pub")
+    #authorized_keys        = file("~/.ssh/authorized_keys")
+    #copy_authorized_keys   = true
+    #authorized_keys_source = "~/.ssh/authorized_keys"
   }
 }
 #-----------------------------------------------------------------------------------------
