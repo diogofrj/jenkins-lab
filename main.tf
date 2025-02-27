@@ -36,7 +36,7 @@ locals {
   nodes = {
     "sh-homelab-test" = {
       vmid          = 3004
-      ip_last_octet = 10
+      ip_last_octet = 11
       cores         = 2
       memory        = 4096
       tags          = ["jenkins-pipeline"]
@@ -154,10 +154,11 @@ resource "proxmox_virtual_environment_vm" "vm" {
 }
 
 
-
+/*
 output "sh-homelab" {
   value = "ssh ubuntu@192.168.31.${local.nodes.sh-homelab.ip_last_octet}"
 }
+*/
 
 #-----------------------------------------------------------------------------------------
 terraform {
