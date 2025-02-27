@@ -10,7 +10,7 @@ pipeline {
     environment {
         TF_IN_AUTOMATION = 'true'
         // Credenciais para o provedor de nuvem (exemplo para AWS)
-        AWS_CREDENTIALS = credentials('aws-credentials')
+        // AWS_CREDENTIALS = credentials('aws-credentials')
     }
     
     stages {
