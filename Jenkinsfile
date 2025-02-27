@@ -4,7 +4,7 @@ pipeline {
     parameters {
         choice(name: 'TERRAFORM_ACTION', choices: ['plan', 'apply', 'destroy'], description: 'Ação do Terraform a ser executada')
         string(name: 'WORKSPACE', defaultValue: 'dev', description: 'Workspace do Terraform (ambiente)')
-        string(name: 'TERRAFORM_DIR', defaultValue: './terraform', description: 'Diretório onde estão os arquivos Terraform')
+        // string(name: 'TERRAFORM_DIR', defaultValue: './terraform', description: 'Diretório onde estão os arquivos Terraform')
     }
     
     environment {
@@ -22,19 +22,19 @@ pipeline {
         
         stage('Terraform Init') {
             steps {
-                dir("${params.TERRAFORM_DIR}") {
+                // dir("${params.TERRAFORM_DIR}") {
                     sh 'terraform init'
                     sh "terraform workspace select ${params.WORKSPACE} || terraform workspace new ${params.WORKSPACE}"
                 }
-            }
+            // }
         }
         
         stage('Terraform Validate') {
             steps {
-                dir("${params.TERRAFORM_DIR}") {
+                // dir("${params.TERRAFORM_DIR}") {
                     sh 'terraform validate'
                 }
-            }
+            // }
         }
         
         stage('Terraform Plan') {
@@ -42,10 +42,10 @@ pipeline {
                 expression { params.TERRAFORM_ACTION == 'plan' || params.TERRAFORM_ACTION == 'apply' }
             }
             steps {
-                dir("${params.TERRAFORM_DIR}") {
+                // dir("${params.TERRAFORM_DIR}") {
                     sh "terraform plan -out=tfplan"
                 }
-            }
+            // }
         }
         
         stage('Terraform Apply') {
@@ -64,10 +64,10 @@ pipeline {
                 expression { params.TERRAFORM_ACTION == 'destroy' }
             }
             steps {
-                dir("${params.TERRAFORM_DIR}") {
+                // dir("${params.TERRAFORM_DIR}") {
                     sh "terraform destroy -auto-approve"
                 }
-            }
+            // }
         }
     }
     
